@@ -1,0 +1,40 @@
+<!-- fabonacci's number generator-->
+<div class="w3-container w3-border">
+  <div class="w3-container w3-margin w3-center">
+    <h3 class="w3-blue">Fabonacci's Number</h3>
+  </div>
+  <div class="w3-card-2 w3-margin">
+    <h5 class="w3-margin w3-padding">How many of Fabio's numbers should we display?</h5>
+    <form class="w3-container w3-padding">
+      <input id="fab_nums" class="w3-input w3-border w3-center" type="text" style="width:20%;" placeholder="fabonacci's numbers to display">
+    </form>
+    <div class="w3-margin w3-btn w3-ripple w3-green" onclick="fab()">Here we go!</div>
+    <div class="w3-margin w3-padding" id="fab_display" style="overflow-wrap: break-word"></div>
+  </div>
+</div><br>
+
+<script>
+  //fabonacci's number function
+  function fab(){
+    var num = document.getElementById('fab_nums').value;
+    if(num === "0"){
+      document.getElementById('fab_display').innerHTML = 0;
+    }
+    else if(num === "1"){
+      document.getElementById('fab_display').innerHTML = 0;
+    }
+    else{
+      num -= 2;
+      var fabon = [0,1];
+      //generates fabonacci's numbers up to num
+      while(num > 0){
+      var last = fabon[fabon.length - 1];
+      var second_to_last = fabon[fabon.length - 2];
+      var new_num = last + second_to_last;
+      fabon.push(new_num);
+      num -= 1;
+    }
+      document.getElementById('fab_display').innerHTML = fabon + "<br>";
+    }
+  }
+</script>
